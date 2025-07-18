@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Interaktif Program IEEE EPICS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals with Teal Accent -->
+    <!-- Application Structure Plan: Desain aplikasi ini menggunakan pendekatan dasbor dengan beberapa bagian tematik yang dapat digulir. Struktur ini dipilih untuk memandu pengguna secara logis, mulai dari gambaran umum program, analisis statistik yang interaktif, fokus regional yang relevan, hingga inspirasi proyek yang dapat ditindaklanjuti. Alur pengguna adalah: 1. Memahami dasar-dasar program (durasi, faktor kunci). 2. Menjelajahi data penerimaan secara interaktif berdasarkan kategori. 3. Mengerucutkan fokus ke Asia Tenggara dan Indonesia, menganalisis tren kata kunci. 4. Mendapatkan ide konkret untuk proposal proyek berdasarkan analisis masalah lokal. Struktur ini mengutamakan usabilitas dengan menyajikan informasi dari umum ke khusus, memberdayakan pengguna untuk membuat keputusan yang tepat. -->
+    <!-- Visualization & Content Choices: 1. Info: Durasi & Faktor Kunci -> Goal: Inform -> Viz: Kartu Info -> Interaction: Statis -> Justification: Penyajian cepat & jelas -> Method: HTML/Tailwind. 2. Info: Statistik Penerimaan -> Goal: Compare -> Viz: Donut Chart & Teks Dinamis -> Interaction: Filter Kategori -> Justification: Visualisasi proporsi yang efektif & perbandingan terfokus -> Library: Chart.js. 3. Info: Proyek di Asia Tenggara -> Goal: Organize -> Viz: Tabel HTML -> Interaction: Statis -> Justification: Kejelasan presentasi data tabular -> Method: HTML/Tailwind. 4. Info: Frekuensi Kata Kunci -> Goal: Analyze -> Viz: Horizontal Bar Chart -> Interaction: Statis -> Justification: Ideal untuk membandingkan frekuensi item diskrit -> Library: Chart.js. 5. Info: Analisis Masalah & Ide Proyek Indonesia -> Goal: Inspire -> Viz: Konten Bertab -> Interaction: Klik Tab -> Justification: Mengorganisir informasi kompleks secara bersih dan memungkinkan eksplorasi mandiri -> Method: JS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .chart-container { position: relative; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; }
+        .bar-chart-container { position: relative; width: 100%; height: 350px; max-height: 400px; }
+        .nav-link { transition: color 0.3s, border-color 0.3s; }
+        .tab-btn.active { border-color: #0d9488; color: #0d9488; background-color: #f0fdfa; }
+        .tab-btn { transition: all 0.3s ease; }
+        .card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-teal-700 mb-2">Analisis Program IEEE EPICS</h1>
+            <p class="text-lg text-gray-600">Panduan Interaktif untuk Memahami Peluang Proyek dan Faktor Keberhasilan</p>
+        </header>
+
+        <nav class="sticky top-0 bg-white/80 backdrop-blur-sm z-10 mb-12 rounded-lg shadow-sm">
+            <div class="max-w-5xl mx-auto px-4">
+                <div class="flex items-center justify-center space-x-4 sm:space-x-8 py-3 text-sm sm:text-base font-medium">
+                    <a href="#gambaran-umum" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent hover:border-teal-600 pb-1">Gambaran Umum</a>
+                    <a href="#statistik-proyek" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent hover:border-teal-600 pb-1">Statistik Proyek</a>
+                    <a href="#fokus-regional" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent hover:border-teal-600 pb-1">Fokus Regional</a>
+                    <a href="#inspirasi-proyek" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent hover:border-teal-600 pb-1">Inspirasi Proyek</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="space-y-16">
+
+            <section id="gambaran-umum" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Gambaran Umum Program</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">Bagian ini menyajikan informasi fundamental mengenai program EPICS in IEEE, termasuk sejak kapan program ini berjalan dan faktor-faktor esensial yang menjadi pertimbangan utama dalam seleksi proyek. Memahami dasar-dasar ini adalah langkah pertama untuk menyusun proposal yang kuat.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="card bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center">
+                        <span class="text-5xl">🗓️</span>
+                        <h3 class="text-xl font-semibold mt-4 mb-2">Durasi Program</h3>
+                        <p class="text-gray-600">EPICS in IEEE telah berjalan dan mendukung proyek-proyek rekayasa berdampak sosial secara global sejak</p>
+                        <p class="text-4xl font-bold text-teal-600 mt-3">2009</p>
+                    </div>
+                    <div class="card bg-white p-6 rounded-lg shadow-md border border-gray-200 lg:col-span-2">
+                        <span class="text-5xl">🎯</span>
+                        <h3 class="text-xl font-semibold mt-4 mb-2">Faktor Kunci Penerimaan</h3>
+                        <p class="text-gray-600 mb-4">Proposal dievaluasi berdasarkan beberapa kriteria utama. Proyek yang berhasil umumnya menunjukkan keunggulan dalam aspek-aspek berikut:</p>
+                        <ul class="space-y-3 text-left">
+                            <li class="flex items-start"><span class="text-teal-500 mr-3 mt-1">✓</span> <strong>Dampak Komunitas:</strong> Solusi yang nyata dan terukur untuk masalah yang dihadapi oleh komunitas mitra.</li>
+                            <li class="flex items-start"><span class="text-teal-500 mr-3 mt-1">✓</span> <strong>Kelayakan Teknis:</strong> Desain rekayasa yang solid dan rencana implementasi yang realistis.</li>
+                            <li class="flex items-start"><span class="text-teal-500 mr-3 mt-1">✓</span> <strong>Inovasi & Kreativitas:</strong> Pendekatan baru atau penerapan teknologi yang cerdas untuk memecahkan masalah.</li>
+                            <li class="flex items-start"><span class="text-teal-500 mr-3 mt-1">✓</span> <strong>Keberlanjutan:</strong> Rencana jangka panjang agar proyek dapat terus berfungsi dan memberi manfaat setelah pendanaan berakhir.</li>
+                            <li class="flex items-start"><span class="text-teal-500 mr-3 mt-1">✓</span> <strong>Keterlibatan Mahasiswa:</strong> Peran aktif mahasiswa dalam setiap fase proyek, dari desain hingga implementasi.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="statistik-proyek" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Statistik Penerimaan Proyek</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">Jelajahi data penerimaan proyek EPICS berdasarkan kategori. Gunakan filter di bawah untuk melihat tingkat keberhasilan di setiap domain. Ini dapat membantu Anda memahami kategori mana yang paling kompetitif dan di mana peluang terbesar mungkin berada. Data yang ditampilkan adalah ilustratif untuk menunjukkan tren umum.</p>
+                
+                <div class="flex justify-center items-center mb-8 space-x-2 flex-wrap" id="category-filter">
+                    <button data-category="Kesehatan" class="category-btn bg-teal-500 text-white py-2 px-4 rounded-full text-sm font-medium">Kesehatan</button>
+                    <button data-category="Lingkungan" class="category-btn bg-white text-gray-700 py-2 px-4 rounded-full text-sm font-medium border border-gray-300">Lingkungan</button>
+                    <button data-category="Pendidikan" class="category-btn bg-white text-gray-700 py-2 px-4 rounded-full text-sm font-medium border border-gray-300">Pendidikan</button>
+                    <button data-category="Aksesibilitas" class="category-btn bg-white text-gray-700 py-2 px-4 rounded-full text-sm font-medium border border-gray-300">Aksesibilitas</button>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg border border-gray-200 max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="text-center md:text-left">
+                            <h3 class="text-2xl font-bold mb-2" id="category-title">Kesehatan</h3>
+                            <p class="text-gray-600 mb-6" id="category-description">Analisis proyek yang berfokus pada peningkatan layanan dan teknologi kesehatan.</p>
+                            <div class="grid grid-cols-2 gap-4 text-center">
+                                <div class="bg-gray-100 p-4 rounded-lg">
+                                    <p class="text-sm text-gray-500">Total Diajukan</p>
+                                    <p class="text-2xl font-bold" id="submitted-count">450</p>
+                                </div>
+                                <div class="bg-green-100 p-4 rounded-lg">
+                                    <p class="text-sm text-green-700">Diterima</p>
+                                    <p class="text-2xl font-bold text-green-800" id="accepted-count">90</p>
+                                </div>
+                            </div>
+                             <div class="mt-6 bg-teal-50 border border-teal-200 p-4 rounded-lg">
+                                <p class="text-sm text-teal-700 text-center">Tingkat Penerimaan</p>
+                                <p class="text-4xl font-bold text-teal-600 text-center" id="acceptance-rate">20%</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="chart-container">
+                                <canvas id="acceptanceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="fokus-regional" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Fokus Regional: Asia Tenggara</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">Bagian ini menyoroti contoh-contoh proyek (hipotetis) yang diterima dari kawasan Asia Tenggara, dengan penekanan pada Indonesia. Tujuannya adalah untuk memberikan gambaran konkret tentang jenis masalah dan solusi yang relevan secara lokal. Selain itu, analisis kata kunci dari judul proyek dapat mengungkapkan tren tema yang populer.</p>
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-4">Contoh Proyek Diterima (Hipotetis)</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left">
+                                <thead class="bg-gray-100 text-gray-600">
+                                    <tr>
+                                        <th class="p-3">Judul Proyek</th>
+                                        <th class="p-3">Negara</th>
+                                        <th class="p-3">Domain</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b"><td class="p-3 font-medium">Sistem Peringatan Dini Banjir Berbasis IoT</td><td class="p-3">Indonesia</td><td class="p-3">Lingkungan</td></tr>
+                                    <tr class="border-b bg-gray-50"><td class="p-3 font-medium">Aplikasi Edukasi Pengelolaan Sampah Plastik</td><td class="p-3">Indonesia</td><td class="p-3">Pendidikan</td></tr>
+                                    <tr class="border-b"><td class="p-3 font-medium">Platform Telemedicine untuk Daerah Terpencil</td><td class="p-3">Filipina</td><td class="p-3">Kesehatan</td></tr>
+                                    <tr class="border-b bg-gray-50"><td class="p-3 font-medium">Alat Bantu Navigasi Tunanetra dengan Umpan Balik Haptik</td><td class="p-3">Indonesia</td><td class="p-3">Aksesibilitas</td></tr>
+                                    <tr class="border-b"><td class="p-3 font-medium">Sistem Irigasi Pintar untuk Petani Skala Kecil</td><td class="p-3">Vietnam</td><td class="p-3">Lingkungan</td></tr>
+                                    <tr class="border-b bg-gray-50"><td class="p-3 font-medium">Purifikasi Air Gambut Rendah Biaya</td><td class="p-3">Malaysia</td><td class="p-3">Kesehatan</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-4">Analisis Kata Kunci Judul Proyek (Rating Frekuensi)</h3>
+                        <div class="bar-chart-container">
+                            <canvas id="keywordChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="inspirasi-proyek" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Inspirasi Proyek untuk Indonesia</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">Masih mencari ide? Bagian ini memetakan beberapa tantangan utama di Indonesia yang dapat menjadi titik awal proposal proyek EPICS Anda. Setiap kategori menyajikan analisis masalah dan beberapa contoh ide konkret. Gunakan ini sebagai referensi untuk mengembangkan solusi rekayasa yang inovatif dan berdampak.</p>
+                <div class="max-w-5xl mx-auto">
+                    <div class="mb-4 flex flex-wrap justify-center border-b border-gray-200">
+                        <button class="tab-btn active py-3 px-6 text-lg font-medium border-b-2" data-tab="lingkungan">Lingkungan</button>
+                        <button class="tab-btn py-3 px-6 text-lg font-medium text-gray-500 border-b-2 border-transparent" data-tab="kesehatan">Kesehatan</button>
+                        <button class="tab-btn py-3 px-6 text-lg font-medium text-gray-500 border-b-2 border-transparent" data-tab="pendidikan">Pendidikan</button>
+                        <button class="tab-btn py-3 px-6 text-lg font-medium text-gray-500 border-b-2 border-transparent" data-tab="ekonomi">Ekonomi & Infra</button>
+                    </div>
+                    <div id="tab-content" class="bg-white p-6 sm:p-8 rounded-lg shadow-lg border border-gray-200">
+                        <div class="tab-pane active" id="lingkungan-content">
+                            <h3 class="text-2xl font-bold mb-2">Tantangan Lingkungan</h3>
+                            <p class="mb-6 text-gray-600">Indonesia menghadapi tantangan lingkungan yang signifikan, mulai dari pengelolaan sampah, polusi air dan udara, hingga dampak perubahan iklim seperti banjir dan kekeringan. Proyek rekayasa yang menawarkan solusi berkelanjutan dan berbasis teknologi sangat dibutuhkan.</p>
+                            <h4 class="font-semibold mb-3">Contoh Ide Proyek:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li><strong>Sistem Pemantauan Kualitas Udara Perkotaan:</strong> Jaringan sensor IoT berbiaya rendah untuk menyediakan data kualitas udara real-time kepada publik.</li>
+                                <li><strong>Mesin Pencacah Plastik Skala Komunitas:</strong> Mengembangkan mesin yang efisien untuk membantu komunitas mengolah sampah plastik menjadi bahan baku yang dapat dijual.</li>
+                                <li><strong>Teknologi Restorasi Terumbu Karang:</strong> Struktur buatan yang dicetak 3D atau metode lain untuk mempercepat regenerasi terumbu karang yang rusak.</li>
+                                <li><strong>Aplikasi Pelaporan Sampah Liar:</strong> Platform seluler yang memungkinkan warga melaporkan lokasi tumpukan sampah ilegal, terintegrasi dengan dinas kebersihan setempat.</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane hidden" id="kesehatan-content">
+                            <h3 class="text-2xl font-bold mb-2">Tantangan Kesehatan</h3>
+                            <p class="mb-6 text-gray-600">Akses terhadap layanan kesehatan yang berkualitas masih belum merata, terutama di daerah terpencil. Masalah seperti stunting, sanitasi yang buruk, dan kurangnya alat diagnostik menjadi prioritas. Teknologi dapat menjembatani kesenjangan ini.</p>
+                            <h4 class="font-semibold mb-3">Contoh Ide Proyek:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li><strong>Kotak Pendingin Vaksin Portabel Tenaga Surya:</strong> Menjamin rantai dingin vaksin saat didistribusikan ke puskesmas tanpa listrik stabil.</li>
+                                <li><strong>Alat Skrining Stunting Berbasis Visi Komputer:</strong> Aplikasi smartphone untuk mengukur tinggi dan berat badan anak secara akurat untuk deteksi dini stunting.</li>
+                                <li><strong>Sistem Penyaringan Air Sederhana untuk Rumah Tangga:</strong> Mengembangkan filter air yang efektif, terjangkau, dan mudah dibuat dari bahan lokal.</li>
+                                <li><strong>Prostetik Tangan atau Kaki Cetak 3D:</strong> Menyediakan prostetik fungsional yang dapat disesuaikan dan berbiaya rendah bagi penyandang disabilitas.</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane hidden" id="pendidikan-content">
+                           <h3 class="text-2xl font-bold mb-2">Tantangan Pendidikan</h3>
+                            <p class="mb-6 text-gray-600">Kesenjangan kualitas pendidikan antara perkotaan dan pedesaan masih besar. Kurangnya alat peraga, akses ke materi pembelajaran digital, dan metode belajar yang kurang menarik menjadi kendala. Proyek yang membuat belajar lebih interaktif dan mudah diakses sangat berharga.</p>
+                            <h4 class="font-semibold mb-3">Contoh Ide Proyek:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li><strong>Kit Eksperimen Sains STEM Terjangkau:</strong> Mengembangkan paket berisi komponen elektronik dan panduan untuk melakukan percobaan sains dasar di sekolah dengan sumber daya terbatas.</li>
+                                <li><strong>Platform Pembelajaran Bahasa Daerah Berbasis Gamifikasi:</strong> Aplikasi permainan untuk mendorong anak muda belajar dan melestarikan bahasa daerah mereka.</li>
+                                <li><strong>Perpustakaan Digital Offline:</strong> Perangkat keras (seperti Raspberry Pi) yang berisi ribuan buku dan materi belajar yang dapat diakses melalui WiFi lokal tanpa perlu internet.</li>
+                                <li><strong>Virtual Reality Lab untuk Pelajaran Kimia/Fisika:</strong> Simulasi laboratorium virtual untuk melakukan percobaan berbahaya atau mahal dengan aman.</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane hidden" id="ekonomi-content">
+                             <h3 class="text-2xl font-bold mb-2">Tantangan Ekonomi & Infrastruktur</h3>
+                            <p class="mb-6 text-gray-600">Pemberdayaan UMKM, peningkatan efisiensi pertanian, dan akses energi bersih adalah kunci pembangunan ekonomi yang inklusif. Teknologi dapat membantu meningkatkan produktivitas dan membuka peluang pasar baru bagi komunitas lokal.</p>
+                            <h4 class="font-semibold mb-3">Contoh Ide Proyek:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li><strong>Alat Pengering Hasil Pertanian Tenaga Surya-Biomassa:</strong> Membantu petani mengurangi kerugian pasca-panen dan meningkatkan kualitas produk mereka.</li>
+                                <li><strong>Aplikasi Manajemen Keuangan untuk UMKM:</strong> Aplikasi sederhana untuk membantu pemilik usaha kecil mencatat transaksi, mengelola stok, dan menghasilkan laporan keuangan dasar.</li>
+                                <li><strong>Sistem Monitoring Tambak Ikan/Udang Berbasis IoT:</strong> Sensor untuk memantau kualitas air (pH, suhu, oksigen terlarut) dan memberikan notifikasi ke smartphone petambak.</li>
+                                <li><strong>Pembangkit Listrik Mikrohidro Skala Desa:</strong> Merancang dan membangun turbin air sederhana untuk menyediakan listrik bagi komunitas terpencil yang dekat dengan aliran sungai.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="text-center mt-16 pt-8 border-t border-gray-200">
+            <p class="text-sm text-gray-500">Aplikasi Analisis Interaktif ini dibuat untuk tujuan demonstrasi berdasarkan data simulasi dan informasi publik. &copy; 2025.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const projectData = {
+                'Kesehatan': { submitted: 450, accepted: 90, description: 'Analisis proyek yang berfokus pada peningkatan layanan dan teknologi kesehatan.' },
+                'Lingkungan': { submitted: 620, accepted: 105, description: 'Analisis proyek yang bertujuan untuk mengatasi masalah lingkungan dan keberlanjutan.' },
+                'Pendidikan': { submitted: 380, accepted: 85, description: 'Analisis proyek yang mengembangkan alat dan metode pembelajaran inovatif.' },
+                'Aksesibilitas': { submitted: 250, accepted: 75, description: 'Analisis proyek yang dirancang untuk membantu penyandang disabilitas.' }
+            };
+
+            let acceptanceChartInstance;
+            const acceptanceChartCanvas = document.getElementById('acceptanceChart').getContext('2d');
+            
+            function updateAcceptanceChart(category) {
+                const data = projectData[category];
+                const acceptanceRate = (data.accepted / data.submitted) * 100;
+                const rejected = data.submitted - data.accepted;
+
+                document.getElementById('category-title').textContent = category;
+                document.getElementById('category-description').textContent = data.description;
+                document.getElementById('submitted-count').textContent = data.submitted;
+                document.getElementById('accepted-count').textContent = data.accepted;
+                document.getElementById('acceptance-rate').textContent = `${acceptanceRate.toFixed(1)}%`;
+
+                if (acceptanceChartInstance) {
+                    acceptanceChartInstance.destroy();
+                }
+
+                acceptanceChartInstance = new Chart(acceptanceChartCanvas, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Diterima', 'Ditolak'],
+                        datasets: [{
+                            data: [data.accepted, rejected],
+                            backgroundColor: ['#0d9488', '#f1f5f9'],
+                            borderColor: ['#ffffff', '#ffffff'],
+                            borderWidth: 2,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '70%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    padding: 20,
+                                    font: { size: 14 }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += context.parsed + ' proyek';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    categoryButtons.forEach(btn => {
+                        btn.classList.remove('bg-teal-500', 'text-white');
+                        btn.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+                    });
+                    button.classList.add('bg-teal-500', 'text-white');
+                    button.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+                    updateAcceptanceChart(button.dataset.category);
+                });
+            });
+
+            updateAcceptanceChart('Kesehatan');
+
+            const keywordData = {
+                labels: ['Sistem', 'Aplikasi', 'IoT', 'Alat', 'Edukasi', 'Pintar', 'Deteksi/Monitoring'],
+                data: [5, 4, 4, 3, 2, 2, 1] 
+            };
+            const keywordChartCanvas = document.getElementById('keywordChart').getContext('2d');
+            new Chart(keywordChartCanvas, {
+                type: 'bar',
+                data: {
+                    labels: keywordData.labels,
+                    datasets: [{
+                        label: 'Frekuensi Kata Kunci',
+                        data: keywordData.data,
+                        backgroundColor: '#2dd4bf',
+                        borderColor: '#0d9488',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `${context.parsed.x} kali disebut`
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.classList.add('text-gray-500', 'border-transparent');
+                    });
+                    button.classList.add('active');
+                    button.classList.remove('text-gray-500', 'border-transparent');
+
+                    const targetTab = button.dataset.tab;
+                    tabPanes.forEach(pane => {
+                        if (pane.id === `${targetTab}-content`) {
+                            pane.classList.remove('hidden');
+                            pane.classList.add('active');
+                        } else {
+                            pane.classList.add('hidden');
+                            pane.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
