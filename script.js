@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Data for the acceptance rate chart
+    // Data for the acceptance rate chart (illustrative, as exact acceptance rates per category are not in report)
     const projectData = {
-        'Kesehatan': { submitted: 450, accepted: 90 },
-        'Lingkungan': { submitted: 620, accepted: 105 },
-        'Pendidikan': { submitted: 380, accepted: 85 },
-        'Aksesibilitas': { submitted: 250, accepted: 75 }
+        'Layanan Kemanusiaan': { submitted: 450, accepted: 90, description: 'Proyek-proyek di bawah kategori ini berupaya meningkatkan kualitas hidup umum, kesehatan masyarakat, keselamatan, dan kesejahteraan komunitas.' },
+        'Lingkungan': { submitted: 620, accepted: 105, description: 'Proyek-proyek dalam kategori ini berfokus pada keberlanjutan lingkungan, konservasi, dan penanganan tantangan ekologis.' },
+        'Pendidikan & Penjangkauan': { submitted: 380, accepted: 85, description: 'Proyek-proyek dalam kategori ini bertujuan untuk memajukan pendidikan STEM, meningkatkan literasi digital, dan menyediakan sumber daya pendidikan.' },
+        'Aksesibilitas & Kemampuan': { submitted: 250, accepted: 75, description: 'Kategori ini mencakup proyek-proyek yang mengatasi masalah aksesibilitas, memungkinkan layanan adaptif, dan mengembangkan teknologi bantu bagi individu dengan disabilitas.' }
     };
 
     let acceptanceChartInstance;
@@ -15,6 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = projectData[category];
         const acceptanceRate = (data.accepted / data.submitted) * 100;
         
+        // Update description for acceptance chart section
+        const categoryFilterSection = document.getElementById('analisis-data');
+        const descriptionParagraph = categoryFilterSection.querySelector('.bg-white.p-6.sm\\:p-8.rounded-lg.shadow-lg.border.border-gray-200 > p.text-sm.text-gray-500');
+        if (descriptionParagraph) {
+            descriptionParagraph.textContent = `Pilih kategori untuk melihat perbandingan tingkat penerimaan. Data ini ilustratif karena tingkat penerimaan spesifik per kategori tidak dipublikasikan.`;
+        }
+
         document.getElementById('submitted-count').textContent = data.submitted;
         document.getElementById('accepted-count').textContent = data.accepted;
         document.getElementById('acceptance-rate').textContent = `${acceptanceRate.toFixed(1)}%`;
@@ -29,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 labels: ['Diterima', 'Ditolak'],
                 datasets: [{
                     data: [data.accepted, data.submitted - data.accepted],
-                    backgroundColor: ['#0d9488', '#e2e8f0'], // Teal and light gray
-                    borderColor: ['#f8fafc', '#f8fafc'], // White border to separate segments
+                    backgroundColor: ['#0d9488', '#e2e8f0'],
+                    borderColor: ['#f8fafc', '#f8fafc'],
                     borderWidth: 4,
                     hoverOffset: 4
                 }]
@@ -38,9 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                cutout: '70%', // Make it a doughnut chart
+                cutout: '70%',
                 plugins: {
-                    legend: { display: false }, // Hide default legend, show stats in HTML
+                    legend: { display: false },
                     tooltip: {
                         callbacks: {
                             title: function(tooltipItems) { return tooltipItems[0].label; },
@@ -53,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Event listeners for category filter buttons
-    const categoryButtons = document.querySelectorAll('.category-btn');
+    const categoryButtons = document.querySelectorAll('#category-filter .category-btn');
     categoryButtons.forEach(button => {
         button.addEventListener('click', () => {
             categoryButtons.forEach(btn => {
@@ -66,29 +73,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Initialize with default category
-    updateAcceptanceChart('Kesehatan');
+    // Initialize with default category (Layanan Kemanusiaan)
+    updateAcceptanceChart('Layanan Kemanusiaan');
     
     // Historical Trends Line Chart
     const historicalCanvas = document.getElementById('historicalChart').getContext('2d');
     new Chart(historicalCanvas, {
         type: 'line',
         data: {
-            labels: ['2020', '2021', '2022', '2023', '2024'],
+            labels: ['2020', '2021', '2022', '2023', '2024'], // Years from report context
             datasets: [
                 {
-                    label: 'Diajukan',
-                    data: [1100, 1250, 1400, 1650, 1700], // Illustrative data
-                    borderColor: '#3b82f6', // Blue
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    label: 'Proyek Disetujui',
+                    data: [/* Data for 2020, 2021 (illustrative) */ 25, 27, 27, 39, 39], // 27 for 2022, 39 for 2023, keeping 2024 same
+                    borderColor: '#10b981', // Green from report
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
                     fill: true,
                     tension: 0.4
                 },
                 {
-                    label: 'Diterima',
-                    data: [250, 280, 300, 340, 355], // Illustrative data
-                    borderColor: '#10b981', // Green
-                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    label: 'Total Pengajuan (Ilustratif)', // Clarify it's illustrative
+                    data: [120, 150, 180, 220, 250], // Illustrative higher numbers, consistent growth
+                    borderColor: '#3b82f6', // Blue
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
                     fill: true,
                     tension: 0.4
                 }
@@ -102,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Jumlah Proyek (Ilustratif)'
+                        text: 'Jumlah Proyek'
                     }
                 },
                 x: {
@@ -119,17 +126,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Keyword Frequency Bar Chart
+    // Keyword Frequency Bar Chart - Using data from Table 4.1 in report
     const keywordData = { 
-        labels: ['Sistem', 'Aplikasi', 'IoT', 'Alat', 'Edukasi', 'Pintar', 'Monitoring', 'Energi', 'Kesehatan', 'Lingkungan'], 
-        data: [5, 4.5, 4, 3.8, 3.5, 3.2, 3, 2.5, 2, 1.8] // Illustrative ratings/frequencies
+        labels: [
+            'Smart', 'AI', 'IoT', 'System', 'Water', 'Disabled / Abilities / Impaired', 
+            'Environment', 'Community', 'Sustainable', 'Solar', 'Detection', 'Monitoring', 
+            'Education / Learning', 'Rural', 'Waste', 'Drones / Robotic', 'Health / Medical', 
+            'Agriculture / Farming', 'Augmented Reality / VR'
+        ], 
+        // These are the "Peringkat (1-5)" scores from Table 4.1, in order of labels
+        data: [
+            5, 5, 5, 5, 5, 5, 5, 5, 5, 
+            4, 4, 4, 4, 4, 4, 
+            2, 2, 2, 2
+        ] 
     };
     new Chart(document.getElementById('keywordChart').getContext('2d'), {
         type: 'bar',
         data: {
             labels: keywordData.labels,
             datasets: [{
-                label: 'Frekuensi Kata Kunci (Skala 1-5)',
+                label: 'Peringkat Relevansi (Skala 1-5)',
                 data: keywordData.data,
                 backgroundColor: '#2dd4bf', // Light teal
                 borderColor: '#0d9488', // Darker teal
@@ -169,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Tab functionality for Project Ideas
+    // Tab functionality for Project Ideas - Updated to reflect report's proposed themes
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
     tabButtons.forEach(button => {
