@@ -1,251 +1,239 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analisis Interaktif Program IEEE EPICS</title>
+    <title>Deep Dive: Strategi Sukses Program IEEE EPICS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body class="text-gray-800">
+</head>
+<body class="text-gray-800">
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-teal-800 mb-2">Deep Dive: Strategi Sukses Program IEEE EPICS</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">Sebuah panduan informatif untuk memahami data, tren, dan faktor kunci keberhasilan proyek.</p>
+        </header>
 
-      <header class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-teal-700 mb-2">Analisis Program IEEE EPICS</h1>
-        <p class="text-lg text-gray-600">Panduan Interaktif untuk Memahami Peluang Proyek dan Faktor Keberhasilan</p>
-      </header>
-
-      <nav class="sticky top-0 bg-white/80 backdrop-blur-sm z-10 mb-12 rounded-lg shadow-sm">
-        <div class="max-w-5xl mx-auto px-4">
-          <div class="flex items-center justify-center space-x-4 sm:space-x-8 py-3 text-sm sm:text-base font-medium">
-            <a href="#gambaran-umum" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent hover:border-teal-600 pb-1">Gambaran Umum</a>
-            <a href="#statistik-proyek" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent hover:border-teal-600 pb-1">Statistik Proyek</a>
-            <a href="#fokus-regional" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent hover:border-teal-600 pb-1">Fokus Regional</a>
-            <a href="#inspirasi-proyek" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent hover:border-teal-600 pb-1">Inspirasi Proyek</a>
-          </div>
-        </div>
-      </nav>
-
-      <main class="space-y-16">
-
-        <section id="gambaran-umum" class="scroll-mt-24">
-          <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Gambaran Umum Program</h2>
-          <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">Bagian ini menyajikan informasi fundamental mengenai program EPICS in IEEE, termasuk sejak kapan program ini berjalan dan faktor-faktor esensial yang menjadi pertimbangan utama dalam seleksi proyek. Memahami dasar-dasar ini adalah langkah pertama untuk menyusun proposal yang kuat.</p>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div class="card bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center">
-              <span class="text-5xl">🗓️</span>
-              <h3 class="text-xl font-semibold mt-4 mb-2">Durasi Program</h3>
-              <p class="text-gray-600">Program EPICS didirikan di Purdue University pada **1995**. Integrasinya ke dalam struktur IEEE, sebagai "EPICS in IEEE," dimulai pada **2009**.</p>
-              <p class="text-4xl font-bold text-teal-600 mt-3">15+ Tahun</p>
-              <p class="text-sm text-gray-500 mt-1">(Sejak EPICS in IEEE)</p>
-            </div>
-            <div class="card bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center">
-              <span class="text-5xl">🌍</span>
-              <h3 class="text-xl font-semibold mt-4 mb-2">Jangkauan Global</h3>
-              <p class="text-gray-600">Sejak 2009, EPICS in IEEE telah memfasilitasi:</p>
-              <ul class="text-left mt-3 space-y-1">
-                <li><strong class="text-teal-600">>255</strong> proyek [1]</li>
-                <li>Di <strong class="text-teal-600">>39</strong> negara [1]</li>
-                <li>Berdampak pada <strong class="text-teal-600">>1,6 juta</strong> orang [1]</li>
-                <li>Melibatkan <strong class="text-teal-600">>11.000</strong> mahasiswa & <strong class="text-teal-600">>1.000</strong> sukarelawan [2]</li>
-              </ul>
-            </div>
-            <div class="card bg-white p-6 rounded-lg shadow-md border border-gray-200 lg:col-span-1">
-              <span class="text-5xl">🎯</span>
-              <h3 class="text-xl font-semibold mt-4 mb-2">Faktor Kunci Penerimaan</h3>
-              <p class="text-gray-600 mb-4">Proposal dievaluasi berdasarkan beberapa kriteria utama. Proyek yang berhasil umumnya menunjukkan keunggulan dalam aspek-aspek berikut:</p>
-              <ul class="space-y-3 text-left text-sm">
-                <li class="flex items-start"><span class="text-teal-500 mr-3 mt-1">✓</span> <strong>Fokus Pembelajaran Layanan & Dampak:</strong> Harus menunjukkan dampak berarti pada komunitas dan peserta.[3, 4]</li>
-                <li class="flex items-start"><span class="text-teal-500 mr-3 mt-1">✓</span> <strong>Identifikasi Masalah & Solusi:</strong> Masalah komunitas teridentifikasi jelas, solusi berkelanjutan.[4]</li>
-                <li class="flex items-start"><span class="text-teal-500 mr-3 mt-1">✓</span> <strong>Keselarasan Anggaran:</strong> Pendanaan $5.000-$10.000, hanya untuk material (bukan honorarium/peralatan besar).[3, 5, 6]</li>
-                <li class="flex items-start"><span class="text-teal-500 mr-3 mt-1">✓</span> <strong>Rencana Penilaian:</strong> Pra dan pasca penilaian yang jelas untuk mengukur keberhasilan.[5, 4]</li>
-                <li class="flex items-start"><span class="text-teal-500 mr-3 mt-1">✓</span> <strong>Keterlibatan Tim & Komunitas:</strong> Tim kolaboratif dan masukan komunitas melalui desain berpusat pada manusia.[4]</li>
-                <li class="flex items-start"><span class="text-teal-500 mr-3 mt-1">✓</span> <strong>Keberlanjutan:</strong> Rencana dampak jangka panjang setelah proyek selesai.[4]</li>
-                <li class="flex items-start"><span class="text-teal-500 mr-3 mt-1">✓</span> <strong>Proses Cepat:</strong> Pemberitahuan penerimaan/penolakan dalam 30 hari.[3]</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="statistik-proyek" class="scroll-mt-24">
-          <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Statistik Penerimaan Proyek</h2>
-          <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">Jelajahi data penerimaan proyek EPICS berdasarkan kategori. Gunakan filter di bawah untuk melihat tingkat keberhasilan di setiap domain. Data ini bersifat ilustratif untuk menunjukkan tren umum, karena tingkat penerimaan spesifik per kategori tidak dipublikasikan secara eksplisit.</p>
-
-          <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
-            <div class="card bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center">
-              <span class="text-5xl">📈</span>
-              <h3 class="text-xl font-semibold mt-4 mb-2">Total Proyek Disetujui</h3>
-              <p class="text-gray-600">Program EPICS in IEEE menunjukkan pertumbuhan signifikan dalam proyek yang disetujui:</p>
-              <ul class="text-left mt-3 space-y-1">
-                <li>Tahun <strong class="text-teal-600">2022: 27</strong> proyek disetujui [7, 8]</li>
-                <li>Tahun <strong class="text-teal-600">2023: 39</strong> proyek disetujui [9]</li>
-                <li>Total pendanaan proyek <strong class="text-teal-600">melampaui $1 juta USD</strong> pada tahun 2023 [9]</li>
-              </ul>
-            </div>
-            <div class="card bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center">
-              <span class="text-5xl">📊</span>
-              <h3 class="text-xl font-semibold mt-4 mb-2">Kategori Proyek Inti</h3>
-              <p class="text-gray-600">EPICS IEEE mendukung proyek di empat pilar utama peningkatan komunitas:</p>
-              <ul class="text-left mt-3 space-y-1">
-                <li><strong class="text-teal-600">Aksesibilitas & Kemampuan:</strong> Teknologi bantu, layanan adaptif.[1, 5]</li>
-                <li><strong class="text-teal-600">Lingkungan:</strong> Keberlanjutan, konservasi, polusi.[1, 5]</li>
-                <li><strong class="text-teal-600">Pendidikan & Penjangkauan:</strong> STEM, literasi digital.[1, 5]</li>
-                <li><strong class="text-teal-600">Layanan Kemanusiaan:</strong> Kualitas hidup, kesehatan, keselamatan.[1, 5]</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="flex justify-center items-center mb-8 space-x-2 flex-wrap" id="category-filter">
-            <button data-category="Layanan Kemanusiaan" class="category-btn bg-teal-500 text-white py-2 px-4 rounded-full text-sm font-medium">Layanan Kemanusiaan</button>
-            <button data-category="Lingkungan" class="category-btn bg-white text-gray-700 py-2 px-4 rounded-full text-sm font-medium border border-gray-300">Lingkungan</button>
-            <button data-category="Pendidikan & Penjangkauan" class="category-btn bg-white text-gray-700 py-2 px-4 rounded-full text-sm font-medium border border-gray-300">Pendidikan & Penjangkauan</button>
-            <button data-category="Aksesibilitas & Kemampuan" class="category-btn bg-white text-gray-700 py-2 px-4 rounded-full text-sm font-medium border border-gray-300">Aksesibilitas & Kemampuan</button>
-          </div>
-
-          <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg border border-gray-200 max-w-4xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-              <div class="text-center md:text-left">
-                <h3 class="text-2xl font-bold mb-2" id="category-title">Layanan Kemanusiaan</h3>
-                <p class="text-gray-600 mb-6" id="category-description">Proyek-proyek di bawah kategori ini berupaya meningkatkan kualitas hidup umum, kesehatan masyarakat, keselamatan, dan kesejahteraan komunitas.</p>
-                <div class="grid grid-cols-2 gap-4 text-center">
-                  <div class="bg-gray-100 p-4 rounded-lg">
-                    <p class="text-sm text-gray-500">Total Diajukan (Ilustratif)</p>
-                    <p class="text-2xl font-bold" id="submitted-count">450</p>
-                  </div>
-                  <div class="bg-green-100 p-4 rounded-lg">
-                    <p class="text-sm text-green-700">Diterima (Ilustratif)</p>
-                    <p class="text-2xl font-bold text-green-800" id="accepted-count">90</p>
-                  </div>
+        <nav class="sticky top-0 bg-white/80 backdrop-blur-sm z-10 mb-12 rounded-lg shadow-sm">
+            <div class="max-w-5xl mx-auto px-4">
+                <div class="flex items-center justify-center space-x-3 sm:space-x-6 py-3 text-xs sm:text-base font-medium flex-wrap">
+                    <a href="#dna-epics" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent hover:border-teal-600 pb-1">DNA EPICS</a>
+                    <a href="#analisis-data" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent hover:border-teal-600 pb-1">Analisis Data</a>
+                    <a href="#studi-kasus" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent hover:border-teal-600 pb-1">Studi Kasus</a>
+                    <a href="#bank-ide" class="nav-link text-gray-600 hover:text-teal-600 border-b-2 border-transparent hover:border-teal-600 pb-1">Bank Ide Proyek</a>
                 </div>
-                <div class="mt-6 bg-teal-50 border border-teal-200 p-4 rounded-lg">
-                  <p class="text-sm text-teal-700 text-center">Tingkat Penerimaan (Ilustratif)</p>
-                  <p class="text-4xl font-bold text-teal-600 text-center" id="acceptance-rate">20%</p>
+            </div>
+        </nav>
+
+        <main class="space-y-20">
+
+            <section id="dna-epics" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Memahami DNA EPICS in IEEE</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Sebelum menyusun proposal, penting untuk memahami filosofi inti, alur proses, dan kriteria evaluasi yang menjadi landasan program EPICS. Bagian ini menguraikan elemen-elemen fundamental tersebut.</p>
+
+                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg border border-gray-200 mb-10">
+                    <h3 class="text-2xl font-bold mb-5 text-center">Alur Proses Proposal EPICS</h3>
+                    <div class="flex flex-col md:flex-row items-center justify-between text-center flex-wrap">
+                        <div class="flow-step flex flex-col items-center p-2">
+                            <div class="text-4xl mb-2">💡</div>
+                            <h4 class="font-semibold">1. Identifikasi Masalah</h4>
+                            <p class="text-sm text-gray-600">Bekerja sama dengan mitra komunitas untuk menemukan kebutuhan nyata.</p>
+                        </div>
+                        <div class="flow-arrow hidden md:block"></div>
+                        <div class="flow-step flex flex-col items-center p-2">
+                            <div class="text-4xl mb-2">✍️</div>
+                            <h4 class="font-semibold">2. Pengembangan Proposal</h4>
+                            <p class="text-sm text-gray-600">Merancang solusi teknis, rencana proyek, dan anggaran yang detail.</p>
+                        </div>
+                        <div class="flow-arrow hidden md:block"></div>
+                        <div class="flow-step flex flex-col items-center p-2">
+                            <div class="text-4xl mb-2">📥</div>
+                            <h4 class="font-semibold">3. Pengajuan Online</h4>
+                            <p class="text-sm text-gray-600">Mengirimkan proposal melalui portal resmi IEEE EPICS.</p>
+                        </div>
+                        <div class="flow-arrow hidden md:block"></div>
+                        <div class="flow-step flex flex-col items-center p-2">
+                            <div class="text-4xl mb-2">🔍</div>
+                            <h4 class="font-semibold">4. Proses Review</h4>
+                            <p class="text-sm text-gray-600">Proposal dievaluasi oleh komite berdasarkan kriteria yang ditetapkan.</p>
+                        </div>
+                        <div class="flow-arrow hidden md:block"></div>
+                        <div class="flow-step flex flex-col items-center p-2">
+                            <div class="text-4xl mb-2">🎉</div>
+                            <h4 class="font-semibold">5. Pengumuman & Pendanaan</h4>
+                            <p class="text-sm text-gray-600">Proyek yang berhasil akan diumumkan dan menerima dana untuk implementasi.</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div>
-                <div class="chart-container">
-                  <canvas id="acceptanceChart"></canvas>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center">
+                        <span class="text-5xl">🗓️</span>
+                        <h3 class="text-xl font-semibold mt-4 mb-2">Durasi & Sejarah</h3>
+                        <p class="text-gray-600">EPICS in IEEE telah mendukung proyek rekayasa berdampak sosial secara global sejak</p>
+                        <p class="text-4xl font-bold text-teal-600 mt-3">2009</p>
+                        <p class="text-sm text-gray-500 mt-2">Lebih dari satu dekade memberdayakan mahasiswa untuk membuat perbedaan.</p>
+                    </div>
+                    <div class="card bg-white p-6 rounded-lg shadow-md border border-gray-200 lg:col-span-2">
+                        <span class="text-5xl">🎯</span>
+                        <h3 class="text-xl font-semibold mt-4 mb-2">Faktor Kunci Penerimaan (Lebih Dalam)</h3>
+                        <p class="text-gray-600 mb-4">Proposal tidak hanya dinilai dari ide, tetapi dari eksekusi dan pemikiran strategis. Berikut penjabaran kriteria utama:</p>
+                        <ul class="space-y-4 text-left">
+                            <li class="flex items-start">
+                                <span class="text-teal-500 mr-4 mt-1 text-xl">🤝</span>
+                                <div><strong>Kemitraan & Dampak Komunitas:</strong> Buktikan bahwa Anda telah berdiskusi mendalam dengan komunitas. Lampirkan surat dukungan atau hasil survei. Jelaskan bagaimana solusi Anda akan digunakan dan dipelihara oleh mereka.</div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-teal-500 mr-4 mt-1 text-xl">🛠️</span>
+                                <div><strong>Kelayakan & Desain Teknis:</strong> Sajikan diagram skematik, pilihan komponen utama, dan justifikasi teknis. Tunjukkan bahwa tim Anda memiliki keahlian yang relevan untuk membangun solusi tersebut.</div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-teal-500 mr-4 mt-1 text-xl">🌱</span>
+                                <div><strong>Keberlanjutan:</strong> Apa yang terjadi setelah proyek selesai? Jelaskan rencana serah terima, pelatihan untuk komunitas, dan bagaimana proyek dapat dipelihara dengan biaya rendah atau bahkan menghasilkan pendapatan.</div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <section id="fokus-regional" class="scroll-mt-24">
-          <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Fokus Regional: Asia Tenggara & Indonesia</h2>
-          <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">Bagian ini menyoroti contoh-contoh proyek nyata yang diterima dari kawasan Asia Tenggara, dengan penekanan pada Indonesia. Analisis kata kunci dari judul proyek juga mengungkapkan tren tema teknologi yang populer.</p>
-          <div class="grid lg:grid-cols-2 gap-12">
-            <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-              <h3 class="text-2xl font-bold mb-4">Contoh Proyek Diterima di Asia Tenggara</h3>
-              <div class="overflow-x-auto">
-                <table class="w-full text-sm text-left">
-                  <thead class="bg-gray-100 text-gray-600">
-                    <tr>
-                      <th class="p-3">Judul Proyek</th>
-                      <th class="p-3">Negara</th>
-                      <th class="p-3">Kategori Utama</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="border-b"><td class="p-3 font-medium">F-Scales for Early Detection of Toddler Growth at Integrated Service Posts</td><td class="p-3">Indonesia</td><td class="p-3">Layanan Kemanusiaan, AI</td></tr>
-                    <tr class="border-b bg-gray-50"><td class="p-3 font-medium">Gili Genting Island’s Oxygen Conservation: IoT-Driven PV-RO for Salt and Drinkable Water Production</td><td class="p-3">Indonesia</td><td class="p-3">Lingkungan, IoT</td></tr>
-                    <tr class="border-b"><td class="p-3 font-medium">An AIoT-powered Smart Agricultural System for Pests Forecasting and Management</td><td class="p-3">Indonesia</td><td class="p-3">Lingkungan, AIoT</td></tr>
-                    <tr class="border-b bg-gray-50"><td class="p-3 font-medium">Smart Mobile Inclusive Learning (SMILE): AI-driven multipurposed therapy for disabled children</td><td class="p-3">Indonesia</td><td class="p-3">Aksesibilitas & Kemampuan, AI</td></tr>
-                    <tr class="border-b"><td class="p-3 font-medium">Rural Energy Pioneer</td><td class="p-3">Indonesia</td><td class="p-3">Pengembangan Komunitas</td></tr>
-                    <tr class="border-b bg-gray-50"><td class="p-3 font-medium">Water Purification for Farmers</td><td class="p-3">Indonesia</td><td class="p-3">Pengembangan Komunitas</td></tr>
-                    <tr class="border-b"><td class="p-3 font-medium">FocusLens: Utilizing Ultrafocus Spectacles, Sound Therapy and an Integrated App for ADHD management</td><td class="p-3">Malaysia</td><td class="p-3">Aksesibilitas & Kemampuan</td></tr>
-                    <tr class="border-b bg-gray-50"><td class="p-3 font-medium">Revitalizing Rural School and Empowering Indigenous Communities</td><td class="p-3">Malaysia</td><td class="p-3">Lingkungan</td></tr>
-                    <tr class="border-b"><td class="p-3 font-medium">Automatic Water Level Control System for Alternate Wetting-and-drying Technique</td><td class="p-3">Thailand</td><td class="p-3">Lingkungan</td></tr>
-                    <tr class="border-b bg-gray-50"><td class="p-3 font-medium">Vietnam Sustainable Shrimp Farming</td><td class="p-3">Vietnam</td><td class="p-3">Lingkungan</td></tr>
-                    <tr class="border-b"><td class="p-3 font-medium">ISort – Sort and Shredding Machine to change Gen Z</td><td class="p-3">Sri Lanka</td><td class="p-3">Lingkungan</td></tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-              <h3 class="text-2xl font-bold mb-4">Analisis Kata Kunci Judul Proyek (Rating Frekuensi)</h3>
-              <p class="text-gray-600 mb-4">Kata kunci ini sering muncul dalam judul proyek EPICS, menunjukkan tren teknologi dan area masalah yang populer.</p>
-              <div class="bar-chart-container">
-                <canvas id="keywordChart"></canvas>
-              </div>
-            </div>
-          </div>
-        </section>
+            ---
 
-        <section id="inspirasi-proyek" class="scroll-mt-24">
-          <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Inspirasi Proyek untuk Indonesia</h2>
-          <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">Masih mencari ide? Bagian ini memetakan beberapa tantangan utama di Indonesia yang dapat menjadi titik awal proposal proyek EPICS Anda. Setiap kategori menyajikan analisis masalah dan beberapa contoh ide konkret. Gunakan ini sebagai referensi untuk mengembangkan solusi rekayasa yang inovatif dan berdampak.</p>
-          <div class="max-w-5xl mx-auto">
-            <div class="mb-4 flex flex-wrap justify-center border-b border-gray-200">
-              <button class="tab-btn active py-3 px-6 text-lg font-medium border-b-2" data-tab="lingkungan">Lingkungan & Keberlanjutan</button>
-              <button class="tab-btn py-3 px-6 text-lg font-medium text-gray-500 border-b-2 border-transparent" data-tab="kesehatan">Kesehatan & Aksesibilitas</button>
-              <button class="tab-btn py-3 px-6 text-lg font-medium text-gray-500 border-b-2 border-transparent" data-tab="pendidikan">Pendidikan & Inklusi Digital</button>
-              <button class="tab-btn py-3 px-6 text-lg font-medium text-gray-500 border-b-2 border-transparent" data-tab="pertanian">Pertanian & Ketahanan Pangan</button>
-            </div>
-            <div id="tab-content" class="bg-white p-6 sm:p-8 rounded-lg shadow-lg border border-gray-200">
-              <div class="tab-pane active" id="lingkungan-content">
-                <h3 class="text-2xl font-bold mb-2">Tantangan Lingkungan & Keberlanjutan</h3>
-                <p class="mb-6 text-gray-600">Indonesia sangat rentan terhadap bencana alam (gempa bumi, tsunami, banjir, letusan gunung berapi) dan menghadapi tantangan besar dalam pengelolaan limbah serta polusi. Proyek rekayasa yang menawarkan solusi berkelanjutan dan berbasis teknologi sangat dibutuhkan.</p>
-                <h4 class="font-semibold mb-3">Contoh Ide Proyek:</h4>
-                <ul class="list-disc list-inside space-y-2 text-gray-700">
-                  <li><strong>Sistem Peringatan Dini Bencana Berbasis IoT:</strong> Jaringan sensor dan AI untuk memprediksi banjir atau tanah longsor di daerah rawan.</li>
-                  <li><strong>Pengelolaan Limbah Terintegrasi Komunitas:</strong> Solusi inovatif untuk pemilahan, daur ulang, atau konversi limbah organik menjadi energi di tingkat desa.</li>
-                  <li><strong>Pemurnian Air Bersih Berbiaya Rendah:</strong> Sistem filtrasi atau desalinasi bertenaga surya untuk komunitas terpencil atau pulau.</li>
-                  <li><strong>Pemantauan Kualitas Udara/Air Real-time:</strong> Jaringan sensor berbiaya rendah untuk memantau polusi di perkotaan atau perairan.</li>
-                  <li><strong>Solusi Pengelolaan Sampah Laut:</strong> Teknologi untuk mengumpulkan dan mengolah sampah plastik di pesisir dan laut.</li>
-                </ul>
-              </div>
-              <div class="tab-pane hidden" id="kesehatan-content">
-                <h3 class="text-2xl font-bold mb-2">Tantangan Kesehatan & Aksesibilitas</h3>
-                <p class="mb-6 text-gray-600">Akses terhadap layanan kesehatan yang berkualitas masih belum merata, terutama di daerah terpencil. Masalah seperti stunting, sanitasi yang buruk, dan kurangnya alat diagnostik menjadi prioritas. Teknologi dapat menjembatani kesenjangan ini dan meningkatkan aksesibilitas bagi penyandang disabilitas.</p>
-                <h4 class="font-semibold mb-3">Contoh Ide Proyek:</h4>
-                <ul class="list-disc list-inside space-y-2 text-gray-700">
-                  <li><strong>Telemedicine Portabel untuk Daerah Terpencil:</strong> Kit diagnostik yang terhubung ke platform telemedicine untuk konsultasi jarak jauh.</li>
-                  <li><strong>Alat Skrining Kesehatan Berbasis AI:</strong> Aplikasi smartphone untuk deteksi dini masalah kesehatan umum, seperti stunting pada balita.</li>
-                  <li><strong>Prostetik/Ortotik Cetak 3D yang Terjangkau:</strong> Desain dan produksi alat bantu yang disesuaikan untuk individu dengan disabilitas.</li>
-                  <li><strong>Perangkat Komunikasi Bantu Bertenaga AI:</strong> Solusi untuk membantu individu dengan gangguan bicara atau pendengaran berkomunikasi lebih efektif.</li>
-                  <li><strong>Sistem Navigasi Dalam Ruangan untuk Tunanetra:</strong> Menggunakan sensor atau AR untuk membantu navigasi di gedung-gedung publik.</li>
-                </ul>
-              </div>
-              <div class="tab-pane hidden" id="pendidikan-content">
-                <h3 class="text-2xl font-bold mb-2">Tantangan Pendidikan & Inklusi Digital</h3>
-                <p class="mb-6 text-gray-600">Kesenjangan kualitas pendidikan antara perkotaan dan pedesaan masih besar. Kurangnya akses ke materi pembelajaran digital, alat peraga, dan literasi teknologi menjadi kendala. Proyek yang membuat belajar lebih interaktif dan mudah diakses sangat berharga.</p>
-                <h4 class="font-semibold mb-3">Contoh Ide Proyek:</h4>
-                <ul class="list-disc list-inside space-y-2 text-gray-700">
-                  <li><strong>Platform Pendidikan Offline Berbasis Server Mikro:</strong> Menyediakan akses ke konten digital (e-book, video edukasi) tanpa internet di sekolah pedesaan.</li>
-                  <li><strong>Laboratorium Virtual/AR/VR untuk STEM:</strong> Simulasi interaktif untuk eksperimen sains dan rekayasa yang sulit diakses secara fisik.</li>
-                  <li><strong>Kurikulum Literasi Digital Terlokalisasi:</strong> Modul pembelajaran tentang keamanan siber, penggunaan internet yang bertanggung jawab, dan keterampilan digital dasar.</li>
-                  <li><strong>Alat Bantu Belajar Interaktif untuk Anak-anak:</strong> Aplikasi atau perangkat keras yang menggunakan gamifikasi untuk meningkatkan minat belajar.</li>
-                  <li><strong>Solusi Akses Internet Berbiaya Rendah:</strong> Pemanfaatan teknologi nirkabel inovatif untuk menghubungkan komunitas terpencil.</li>
-                </ul>
-              </div>
-              <div class="tab-pane hidden" id="pertanian-content">
-                <h3 class="text-2xl font-bold mb-2">Tantangan Pertanian & Ketahanan Pangan</h3>
-                <p class="mb-6 text-gray-600">Pemberdayaan petani kecil, peningkatan efisiensi pertanian, dan ketahanan pangan adalah kunci pembangunan ekonomi yang inklusif. Teknologi dapat membantu meningkatkan produktivitas, mengurangi kerugian, dan membuka peluang pasar baru bagi komunitas lokal.</p>
-                <h4 class="font-semibold mb-3">Contoh Ide Proyek:</h4>
-                <ul class="list-disc list-inside space-y-2 text-gray-700">
-                  <li><strong>Sistem Irigasi Cerdas Berbasis IoT:</strong> Sensor kelembaban tanah dan cuaca untuk mengoptimalkan penggunaan air dalam pertanian.</li>
-                  <li><strong>Teknologi Pengeringan Hasil Pertanian Tenaga Surya/Biomassa:</strong> Mengurangi kerugian pasca-panen dan meningkatkan kualitas produk.</li>
-                  <li><strong>Pemantauan Kesehatan Tanaman dengan Drone & AI:</strong> Deteksi dini hama, penyakit, atau kekurangan nutrisi pada tanaman.</li>
-                  <li><strong>Platform Digital untuk Rantai Pasokan Pertanian:</strong> Menghubungkan petani langsung ke pasar atau konsumen, meningkatkan transparansi dan pendapatan.</li>
-                  <li><strong>Solusi Pertanian Vertikal/Hidroponik Perkotaan:</strong> Memaksimalkan produksi pangan di lahan terbatas perkotaan.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+            <section id="analisis-data" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Analisis Data & Tren Penerimaan</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Data adalah kunci untuk memahami lanskap kompetisi. Bagian ini menyajikan tren historis dan perbandingan tingkat keberhasilan antar kategori untuk membantu Anda memposisikan proposal secara strategis.</p>
+                
+                <div class="grid lg:grid-cols-2 gap-12 mb-12">
+                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-1">Tren Pengajuan vs. Penerimaan</h3>
+                        <p class="text-sm text-gray-500 mb-4">Data historis (ilustratif) menunjukkan pertumbuhan minat pada program dan tingkat kompetisi yang stabil.</p>
+                        <div class="line-chart-container">
+                            <canvas id="historicalChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-1">Tingkat Keberhasilan per Kategori</h3>
+                        <p class="text-sm text-gray-500 mb-4">Pilih kategori untuk melihat perbandingan tingkat penerimaan. Gunakan data ini untuk mengidentifikasi peluang.</p>
+                        <div class="flex justify-center items-center mb-4 space-x-2 flex-wrap" id="category-filter">
+                            <button data-category="Kesehatan" class="category-btn bg-teal-600 text-white py-1 px-3 rounded-full text-xs sm:text-sm font-medium">Kesehatan</button>
+                            <button data-category="Lingkungan" class="category-btn bg-white text-gray-700 py-1 px-3 rounded-full text-xs sm:text-sm font-medium border border-gray-300">Lingkungan</button>
+                            <button data-category="Pendidikan" class="category-btn bg-white text-gray-700 py-1 px-3 rounded-full text-xs sm:text-sm font-medium border border-gray-300">Pendidikan</button>
+                            <button data-category="Aksesibilitas" class="category-btn bg-white text-gray-700 py-1 px-3 rounded-full text-xs sm:text-sm font-medium border border-gray-300">Aksesibilitas</button>
+                        </div>
+                        <div class="chart-container mx-auto">
+                            <canvas id="acceptanceChart"></canvas>
+                        </div>
+                        <div class="mt-4 grid grid-cols-3 gap-2 text-center text-sm">
+                            <div class="bg-gray-100 p-2 rounded-lg"><span class="font-bold block" id="submitted-count">450</span> Diajukan</div>
+                            <div class="bg-green-100 p-2 rounded-lg"><span class="font-bold block" id="accepted-count">90</span> Diterima</div>
+                            <div class="bg-teal-100 p-2 rounded-lg"><span class="font-bold block" id="acceptance-rate">20%</span> Sukses</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            ---
 
-      <footer class="text-center mt-16 pt-8 border-t border-gray-200">
-        <p class="text-sm text-gray-500">Aplikasi Analisis Interaktif ini dibuat untuk tujuan demonstrasi berdasarkan data laporan penelitian. &copy; 2025.</p>
-      </footer>
+            <section id="studi-kasus" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Studi Kasus: Potensi di Asia Tenggara</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Melihat contoh nyata adalah cara terbaik untuk belajar. Bagian ini menyoroti proyek (hipotetis) yang relevan dengan konteks Asia Tenggara dan menganalisis tema populer yang sering muncul.</p>
+                <div class="grid lg:grid-cols-5 gap-12">
+                    <div class="lg:col-span-3 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-4">Contoh Proyek & Potensi Dampaknya</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left">
+                                <thead class="bg-gray-100 text-gray-600 uppercase text-xs">
+                                    <tr>
+                                        <th class="p-3">Judul Proyek & Negara</th>
+                                        <th class="p-3">Potensi Dampak</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b"><td class="p-3"><span class="font-medium block">Sistem Peringatan Dini Banjir Berbasis IoT</span><span class="text-gray-500">Indonesia</span></td><td class="p-3 text-gray-600">Mengurangi kerugian materi dan korban jiwa dengan memberikan peringatan dini kepada warga di bantaran sungai.</td></tr>
+                                    <tr class="border-b bg-gray-50"><td class="p-3"><span class="font-medium block">Aplikasi Edukasi Pengelolaan Sampah</span><span class="text-gray-500">Indonesia</span></td><td class="p-3 text-gray-600">Meningkatkan kesadaran dan partisipasi komunitas dalam pemilahan sampah, menciptakan lingkungan lebih bersih.</td></tr>
+                                    <tr class="border-b"><td class="p-3"><span class="font-medium block">Alat Bantu Navigasi Tunanetra Haptik</span><span class="text-gray-500">Indonesia</span></td><td class="p-3 text-gray-600">Meningkatkan kemandirian dan mobilitas penyandang tunanetra di ruang publik.</td></tr>
+                                    <tr class="border-b bg-gray-50"><td class="p-3"><span class="font-medium block">Sistem Irigasi Pintar untuk Petani</span><span class="text-gray-500">Vietnam</span></td><td class="p-3 text-gray-600">Meningkatkan efisiensi penggunaan air hingga 40% dan menaikkan hasil panen.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                        <h3 class="text-2xl font-bold mb-4">Topik Populer dalam Judul Proyek</h3>
+                        <div class="bar-chart-container">
+                            <canvas id="keywordChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            ---
+
+            <section id="bank-ide" class="scroll-mt-24">
+                <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">Bank Ide: Mengubah Masalah Lokal Menjadi Solusi Rekayasa</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Bagian ini adalah titik awal Anda. Kami telah memetakan beberapa tantangan utama di Indonesia dan menyajikannya dalam bentuk ide proyek yang konkret, lengkap dengan justifikasi mengapa ide tersebut selaras dengan nilai-nilai EPICS.</p>
+                <div class="max-w-5xl mx-auto">
+                    <div class="mb-4 flex flex-wrap justify-center border-b border-gray-200">
+                        <button class="tab-btn active py-3 px-6 text-base font-medium border-b-2" data-tab="lingkungan">Lingkungan</button>
+                        <button class="tab-btn py-3 px-6 text-base font-medium text-gray-500 border-b-2 border-transparent" data-tab="kesehatan">Kesehatan</button>
+                        <button class="tab-btn py-3 px-6 text-base font-medium text-gray-500 border-b-2 border-transparent" data-tab="pendidikan">Pendidikan</button>
+                        <button class="tab-btn py-3 px-6 text-base font-medium text-gray-500 border-b-2 border-transparent" data-tab="ekonomi">Ekonomi</button>
+                    </div>
+                    <div id="tab-content" class="bg-white p-6 sm:p-8 rounded-lg shadow-lg border border-gray-200">
+                        <div class="tab-pane active" id="lingkungan-content">
+                            <h3 class="text-2xl font-bold mb-2">Tantangan: Pengelolaan Sampah & Polusi</h3>
+                            <p class="mb-6 text-gray-600">Sampah plastik dan polusi air menjadi masalah kritis di banyak daerah. Solusi teknologi dapat membantu dalam pengelolaan dan daur ulang.</p>
+                            <div class="border-t pt-4">
+                                <h4 class="font-semibold text-lg">Ide Proyek: Mesin Pencacah & Peleleh Plastik Skala Komunitas</h4>
+                                <p class="text-gray-700 my-2">Mengembangkan mesin 2-in-1 yang aman dan efisien untuk mengubah sampah botol plastik (PET) menjadi filamen untuk pencetakan 3D atau bahan kerajinan lain.</p>
+                                <p class="font-semibold text-sm text-teal-700">Mengapa ini Proyek EPICS yang baik?</p>
+                                <p class="text-xs text-gray-600">Menjawab masalah lingkungan (sampah), memberdayakan ekonomi komunitas (menjual hasil olahan), dan memiliki rencana keberlanjutan yang jelas.</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane hidden" id="kesehatan-content">
+                            <h3 class="text-2xl font-bold mb-2">Tantangan: Akses Kesehatan di Daerah Terpencil</h3>
+                            <p class="mb-6 text-gray-600">Distribusi vaksin dan obat-obatan yang memerlukan pendingin (rantai dingin) adalah kendala besar di daerah tanpa listrik yang stabil.</p>
+                            <div class="border-t pt-4">
+                                <h4 class="font-semibold text-lg">Ide Proyek: Kotak Pendingin Vaksin Portabel Tenaga Surya</h4>
+                                <p class="text-gray-700 my-2">Merancang kotak pendingin yang ringan, tahan guncangan, dan ditenagai oleh panel surya fleksibel untuk menjaga suhu vaksin selama perjalanan ke puskesmas terpencil.</p>
+                                <p class="font-semibold text-sm text-teal-700">Mengapa ini Proyek EPICS yang baik?</p>
+                                <p class="text-xs text-gray-600">Dampak komunitas sangat tinggi (menyelamatkan nyawa), solusi teknis yang jelas, dan memenuhi kebutuhan mendesak dari mitra (dinas kesehatan).</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane hidden" id="pendidikan-content">
+                           <h3 class="text-2xl font-bold mb-2">Tantangan: Kesenjangan Alat Peraga Pendidikan STEM</h3>
+                            <p class="mb-6 text-gray-600">Banyak sekolah di daerah kekurangan alat laboratorium yang mahal untuk pelajaran sains, teknologi, rekayasa, dan matematika (STEM).</p>
+                            <div class="border-t pt-4">
+                                <h4 class="font-semibold text-lg">Ide Proyek: Kit Eksperimen Sains Berbasis Mikrokontroler</h4>
+                                <p class="text-gray-700 my-2">Mengembangkan kit terjangkau berisi sensor (suhu, cahaya, suara), motor, dan papan mikrokontroler (seperti Arduino/ESP32) dengan modul pembelajaran online.</p>
+                                <p class="font-semibold text-sm text-teal-700">Mengapa ini Proyek EPICS yang baik?</p>
+                                <p class="text-xs text-gray-600">Solusi inovatif untuk masalah pendidikan, dapat diperbanyak dengan biaya rendah (keberlanjutan), dan melibatkan mahasiswa dalam pengembangan kurikulum.</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane hidden" id="ekonomi-content">
+                               <h3 class="text-2xl font-bold mb-2">Tantangan: Efisiensi Pertanian & Perikanan</h4>
+                            <p class="mb-6 text-gray-600">Petani dan petambak skala kecil seringkali kesulitan memantau kondisi lahan atau tambak secara efisien, yang berakibat pada gagal panen.</p>
+                            <div class="border-t pt-4">
+                                <h4 class="font-semibold text-lg">Ide Proyek: Sistem Monitoring Tambak Ikan Berbasis IoT</h4>
+                                <p class="text-gray-700 my-2">Sistem yang menggunakan sensor untuk memantau pH, suhu, dan kadar oksigen air tambak, lalu mengirimkan data dan peringatan ke ponsel petambak melalui SMS (tidak perlu internet).</p>
+                                <p class="font-semibold text-sm text-teal-700">Mengapa ini Proyek EPICS yang baik?</p>
+                                <p class="text-xs text-gray-600">Meningkatkan kesejahteraan ekonomi komunitas, penerapan teknologi yang cerdas untuk masalah spesifik, dan memiliki metrik keberhasilan yang jelas (penurunan tingkat kematian ikan).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="text-center mt-20 pt-8 border-t border-gray-200">
+            <p class="text-sm text-gray-500">&copy; 2025 - Aplikasi Analisis Interaktif ini dibuat untuk tujuan demonstrasi dan strategis.</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
